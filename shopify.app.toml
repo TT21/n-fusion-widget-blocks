@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "n-fusion-widget-blocks"
+client_id = "5e7b538bfb73dd68afdf6960e22c0285"
+application_url = "https://turned-essential-drop-object.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://turned-essential-drop-object.trycloudflare.com/auth/callback",
+  "https://turned-essential-drop-object.trycloudflare.com/auth/shopify/callback",
+  "https://turned-essential-drop-object.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2023-07"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "tt21-test-store.myshopify.com"
