@@ -1,18 +1,71 @@
-<div id="64b71d40-57dd-4d13-bbbf-582075df3c54" style="width:100%;height:100%;"></div>
-<script>
-  (function () {
-    var t = document.getElementsByTagName('script')[0];
-    var s = document.createElement('script');
-    s.async = true;
-    s.src =
-      'https://widget.nfusionsolutions.com/widget/script/ticker/1/dbdb86ed-354f-498d-8d22-c3cda8ea024b/64b71d40-57dd-4d13-bbbf-582075df3c54';
-    t.parentNode.insertBefore(s, t);
-  })();
-</script>
+<div class="center">
+  {% if block.settings.heading_text %}
+    <{{ block.settings.heading_size }}>{{ block.settings.heading_text }}</{{ block.settings.heading_size }}>
+  {% endif %}
+  {% if block.settings.widget_id %}
+    <div id="{{ block.settings.widget_id }}" style="width:100%;height:100%;"></div>
+    <script>
+      (function () {
+        var t = document.getElementsByTagName('script')[0];
+        var s = document.createElement('script');
+        s.async = true;
+        s.src =
+          'https://widget.nfusionsolutions.com/widget/script/ticker/1/dbdb86ed-354f-498d-8d22-c3cda8ea024b/{{ block.settings.widget_id }}';
+        t.parentNode.insertBefore(s, t);
+      })();
+    </script>
+  {% else %}
+    <p>Widget ID not found. Add the widget ID</p>
+  {% endif %}
+</div>
 {% schema %}
 {
   "name": "nFusion Ticker Widget",
   "target": "section",
-  "settings": [{ "type": "text", "id": "widget_id", "label": "Widget ID" }]
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    { "type": "text", "id": "heading_text", "label": "Heading" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        {
+          "value": "h1",
+          "label": "h1"
+        },
+        {
+          "value": "h2",
+          "label": "h2"
+        },
+        {
+          "value": "h3",
+          "label": "h3"
+        },
+        {
+          "value": "h4",
+          "label": "h4"
+        },
+        {
+          "value": "h5",
+          "label": "h5"
+        },
+        {
+          "value": "h6",
+          "label": "h6"
+        }
+      ],
+      "default": "h3",
+      "info": "The size of the heading."
+    },
+    {
+      "type": "header",
+      "content": "Widget Details"
+    },
+    { "type": "text", "id": "widget_id", "label": "Widget ID" }
+  ]
 }
 {% endschema %}
