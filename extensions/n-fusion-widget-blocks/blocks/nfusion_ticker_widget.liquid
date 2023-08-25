@@ -1,3 +1,27 @@
+{% style %}
+  .nfusion-ticker__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #000;
+  }
+  .nfusion-ticker__container--sticky {
+    position: fixed;
+  }
+  .nfusion-ticker__heading {
+    width: 100%;
+    text-align: center;
+  }
+  @media screen and (min-width: 750px) {
+    .nfusion-ticker__container {
+      flex-direction: row;
+    }
+    .nfusion-ticker__heading {
+      text-align: left;
+      width: 22em;
+    }
+  }
+{% endstyle %}
 <div class="nfusion-ticker__container {% if block.settings.sticy_sectio %}nfusion-ticker__container--sticky{% endif %}">
   {% if block.settings.heading_text %}
     <{{ block.settings.heading_size }} class="nfusion-ticker__heading">
