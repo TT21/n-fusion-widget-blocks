@@ -7,6 +7,9 @@
   }
   .nfusion-ticker__container--sticky {
     position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
   }
   .nfusion-ticker__heading {
     width: 100%;
@@ -22,7 +25,7 @@
     }
   }
 {% endstyle %}
-<div class="nfusion-ticker__container {% if block.settings.sticy_sectio %}nfusion-ticker__container--sticky{% endif %}">
+<div class="nfusion-ticker__container {% if block.settings.sticky_section %}nfusion-ticker__container--sticky{% endif %}">
   {% if block.settings.heading_text %}
     <{{ block.settings.heading_size }} class="nfusion-ticker__heading">
       {{- block.settings.heading_text -}}
